@@ -244,8 +244,10 @@ const slidersFront = $('.slider-front'),
 let modalBtn = document.querySelector('.av-rooms')
 lang[0].addEventListener('click', function (e) {
     this.classList.toggle('lang-activ')
-    if(e.target.matches('.ic_text')){
-       
+    if( this.closest('.lang-activ')){
+        e.preventDefault()
+
+
         
     }
      

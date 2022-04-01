@@ -393,7 +393,7 @@
                     dataType: "json",
                     data: data,
                     {#url: document.URL+"av_rooms/",#}
-                    url: {% url "av_rooms" %},
+                    url: "{% url "available_rooms" %}",
                     success: function (data){
                         let result = data["data"]
                         {#console.log(result)#}

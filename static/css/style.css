@@ -400,8 +400,13 @@ header {
 .lang-activ {
   background: rgba(0, 0, 0, 0.26);
 }
+.lang-activ .lang_item{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
 
-.lang-activ .lang_item {
+ .lang_item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

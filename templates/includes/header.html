@@ -27,18 +27,47 @@
             <div class="additional-content ">
                 <div class="lang ">
                     <div class="mobile-lang">
-                        <div class=" lang_item lang_active lang_item-1">
-                            <img class="lang_ic" src="{% static "img/UK.svg" %}" alt="">
-                            <div class="ic_text">
-                                English
+
+
+                        {% if "/ru/" in request.path %}
+
+                            <div class=" lang_item  lang_item-1 ">
+                                <img class="lang_ic" src="{% static "img/ru.svg" %}" alt="">
+                                <div class="ic_text">
+                                    Русский
+                                </div>
                             </div>
-                        </div>
-                        <div class=" lang_item lang_item-2 ">
-                            <img class="lang_ic" src="{% static "img/ru.svg" %}" alt="">
-                            <div class="ic_text">
-                                Russian
+
+                            <div class=" lang_item lang_item-2">
+                                <img class="lang_ic" src="{% static "img/UK.svg" %}" alt="">
+                                <a href="/en/" class="ic_text">
+                                    English
+                                </a>
                             </div>
-                        </div>
+
+                            {% elif "/en/" in request.path %}
+
+                            <div class=" lang_item  lang_item-1 ">
+                                <img class="lang_ic" src="{% static "img/UK.svg" %}" alt="">
+                                <div class="ic_text">
+                                    English
+                                </div>
+                            </div>
+
+                            <div class=" lang_item lang_item-2">
+                                <img class="lang_ic" src="{% static "img/ru.svg" %}" alt="">
+                                <a href="/ru/" class="ic_text">
+                                    Русский
+                                </a>
+                            </div>
+
+                        {% endif %}
+
+
+
+
+
+
                     </div>
                     <img class="ic_arrow" src="{% static "img/arrow_b.svg" %}" alt="">
                 </div>
