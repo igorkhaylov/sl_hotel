@@ -1,0 +1,7 @@
+.idea/
+media/
+venv
+__pycache__
+migrations
+sl_hotel/local_settings.py
+sl_hotel/prod_settings.py

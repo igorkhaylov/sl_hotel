@@ -1,0 +1,421 @@
+{% extends "base.html" %}
+{% load static thumbnail i18n %}
+
+{% block body %}
+
+
+<form id="modal-reservation" class="modal-reservation   ">
+    <img class="close_reservation " src="{% static "img/cross.svg" %}" alt="">
+    <div class=" modal-reservation_container date ">
+        <div class="container-title booking-time ">
+            Check availability
+        </div>
+        <div class="date_container">
+            <div class="input-info">From:
+                <input class="check-in-2 calendar modal-input" type="text">
+            </div>
+            <div class="input-info">To:
+                <input class="check-out-2 calendar modal-input" type="text">
+            </div>
+        </div>
+    </div>
+    <div class="container-1">
+        <div class="modal-reservation_container modal-guests-2">
+            <h2 class="modal-guest_title">Guests</h2>
+            <div class="what">What type of room do you need?</div>
+            <div class="chnge_class-room">
+                <input id="deluxe" class="class-room deluxe-input" type="radio" name="class-room">
+                <label class="class-room-choise" for="deluxe">Deluxe</label>
+                <input id="econom" class="class-room econom-input" type="radio" name="class-room">
+                <label class="class-room-choise" for="econom">Econom</label>
+            </div>
+            <div class="what">For how many Guests?</div>
+            <h2 class="modal-guest_title-2">Room 1</h2>
+            <div class="numbers">
+                <div class="change-number">
+                    <span class="who">Adults</span>
+                    <div class="number">
+                        <div class="minus number-item"></div>
+                        <input readonly value="0" class="current-number adults number-item modal-adults-form">
+                        <div class="plus number-item">+</div>
+                    </div>
+                </div>
+                <div class="change-number ">
+                    <span class="who">Children</span>
+                    <div class="number">
+                        <div class="minus number-item"></div>
+                        <input readonly value="0" class="current-number children number-item modal-children-form">
+                        <div class="plus number-item">+</div>
+                    </div>
+                </div>
+            </div>
+            <button href="#slider" class="select-room  av-rooms">Choose a Room</button>
+        </div>
+        <div class="modal-reservation_container">
+            <div class="container-title">
+{#                Контактные данные#}
+                Contact Information
+            </div>
+            <input class="modal-input" required placeholder="First name" type="text">
+            <input class="modal-input" required placeholder="Last name" type="text">
+            <input class="modal-input" required placeholder="Email" type="email">
+            <input class="modal-input" required placeholder="Phone" type="tel">
+
+            <button id="send_message" class="submit" type="submit">Booking Now</button>
+        </div>
+    </div>
+</form>
+
+    {% include "includes/header.html" %}
+
+<section class="welcome-page ">
+    <div class="main-text">
+        <h1 class="title">
+            Welcome to
+        </h1>
+        <h1 class="welcome">
+            Our Palace Hotel
+        </h1>
+        <div class="welcome-text">
+            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia
+            consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+
+        </div>
+    </div>
+
+
+    <div id="booking" class="Booking">
+        <div class="reservation">
+            Online Reservation
+        </div>
+        <div class="inputs ">
+            <div class="input-p ">
+                <input placeholder="From" type="text" id="check-in" class=" calendar  input_date"/>
+                <img class="input_ic" src="{% static "img/calendar.svg" %}" alt="">
+            </div>
+            <div class="input-p">
+                <input placeholder="To" id="check-out" class=" calendar input_date" type="text">
+                <img class="input_ic" src="{% static "img/calendar.svg" %}" alt="">
+            </div>
+            <div class="input-p guests-parent">
+                <input placeholder="Guests" id="guests" class=" input_date" type="text">
+                <img class=" input_ic-guests " src="{% static "img/persan.svg" %}" alt="">
+
+                <div class="modal-guests">
+                    <h2 class="modal-guest_title">Guests</h2>
+                    <div class="stripe-guests"></div>
+                    <div class="what">What type of room do you need?</div>
+                    <div class="chnge_class-room">
+                        <input id="deluxe-2" class="class-room deluxe-input" type="radio" name="class-room">
+                        <label class="class-room-choise" for="deluxe-2">Deluxe</label>
+                        <input id="econom-2" class="class-room econom-input" type="radio" name="class-room">
+                        <label class="class-room-choise" for="econom-2">Econom</label>
+                    </div>
+                    <div class="what">For how many Guest(s)?</div>
+                    <h2 class="modal-guest_title-2">Room 1</h2>
+                    <div class="numbers">
+                        <div class="change-number">
+                            <span class="who">Adults</span>
+                            <div class="number">
+                                <div class="minus number-item"></div>
+                                <input readonly value="0" class="current-number adults number-item adults-form">
+                                <div class="plus number-item">+</div>
+                            </div>
+                        </div>
+                        <div class="change-number ">
+                            <span class="who">Children</span>
+                            <div class="number">
+                                <div class="minus number-item"></div>
+                                <input readonly value="0" class="current-number children number-item children-form">
+                                <div class="plus number-item">+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stripe-guests"></div>
+                </div>
+            </div>
+
+
+
+            <div class="booking-buttons">
+                <button href="#slider" class="modal-guests-btn  av-rooms qwer">Show available rooms</button>
+            <button class="booking-button booking-btn">Booking Now</button>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<section class="our-rooms">
+
+
+    <div class="bg-img-2">
+        <div class="title_1">
+            Our Rooms
+        </div>
+        <div class="change-rooms">
+
+            <div class="current-rooms room-section-list">
+                <div class="mobile current-text">
+                    All rooms
+                </div>
+                <img class="mobile" src="{% static "img/arrow_b.svg" %}" alt="">
+            </div>
+
+            <div class="room-sections">
+                <img src="{% static "img/Chips.png" %}" class="chips mobile" alt="">
+
+                <input id="all" data-f="all" class="filter" checked name="filter" type="radio">
+                <label data-f="all" class="room-section room-section-active all-label" for="all">
+                    All rooms
+
+
+                </label>
+                <input data-f="av" class="filter" id="av" name="filter" type="radio">
+                <label data-f="av" id="aviable" href="#booking" class="room-section" for="av">
+                    Available rooms
+
+
+                </label>
+                <input data-f="econom" class="filter" id="f-econom" name="filter" type="radio">
+                <label data-f="econom" class="room-section" for="f-econom">
+                    Econom rooms
+                </label>
+                <input data-f="deluxe" class="filter" id="f-deluxe" name="filter" type="radio">
+                <label data-f="deluxe" class="room-section" for="f-deluxe">
+
+
+                    Deluxe rooms
+
+                </label>
+
+
+            </div>
+
+
+        </div>
+
+
+        <div id="slider" class="slider swiper container">
+
+
+            <img src="{% static "img/next-arrow.png" %}" alt="" class="prev-btn">
+            <img src="{% static "img/next-arrow.png" %}" alt="" class="next-btn">
+
+            <div class=" swiper-wrapper slider-carusel">
+
+
+                {% for room in rooms %}
+
+                <div id="my-room-id-{{ room.id }}" class="rooms-for-del-av slider-item swiper-slide all {{ room.categories.slug }} col-4">
+                    <div class="slider-width">
+
+                        <div class="slider-front ">
+                            <div class="slider-item-class">
+                                {{ room.categories.title }}
+                            </div>
+                            <div class="pagination">
+                                <div class="pagination-item pagination-item_active"></div>
+                                <div class="pagination-item"></div>
+                                <div class="pagination-item"></div>
+                                <div class="pagination-item"></div>
+                            </div>
+                            <img class="slider-item_img pic1" src="{{ room.pic1.url }}" alt="">
+                            <img class="slider-item_img d-none pic2" src="{{ room.pic2.url }}" alt="">
+                            <img class="slider-item_img d-none pic3" src="{{ room.pic3.url }}" alt="">
+                            <div class="slider-item-info">
+                                <div class="characteristics">
+                                    <div class="comfort">
+                                        {{ room.title }}
+                                    </div>
+                                    <div class="price">
+                                        {{ room.price }}$/day
+                                    </div>
+                                </div>
+                                <div class="info-room">
+                                    <div class="area">
+                                        <img class="ic-room" src="{% static "img/area.svg" %}" alt="">
+                                        {{ room.size }} m <sup>2</sup>
+                                    </div>
+
+                                    {% for details in room.room_details.all %}
+
+                                        <img class="ic-room" src="{{ details.image.url }}" alt="{{ details.title }}"
+                                             style="display: {% cycle "block" "block" "block" "block" "none" "none" "none" "none" %}">
+
+                                    {% endfor %}
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-back slider-item_active ">
+                            <div class="grade">
+                                <img class="ic_room star" src="{% static "img/ic_star.png" %}" alt="">
+                                <span style="font-size: 21px">{{ room.stars }}</span>
+                            </div>
+                            <div class="title-slider back-item">
+                                Accommodates {{ room.adult|add:room.children }} guests.
+                                <img class="close" src="{% static "img/cross.svg" %}" alt="">
+                            </div>
+                            <div class="main-back-item">
+
+                                {% if room.is_non_smoking %}
+
+                                    <div class="back-item">
+                                        <img class="ic-room" src="{% static "img/ic_smoking.png" %}" alt="">
+                                        <div class="back-item-text d-flex">
+                                            Non-smoking room
+                                        </div>
+                                    </div>
+
+                                {% endif %}
+
+                            {% if room.is_breakfast %}
+
+                                <div class="back-item">
+                                    <img class="ic-room" src="{% static "img/ic_breackfast.svg" %}" alt="">
+                                    <div class="back-item-text">
+                                        Breakfast included for this cost
+                                    </div>
+                                </div>
+
+                            {% endif %}
+
+                            </div>
+                            <div class="stripe"></div>
+                            <div class="back-item-info back-item">
+                                All facilities in the room:
+                            </div>
+
+                            {% for details in room.room_details.all %}
+
+                            <div class="back-item">
+                                <img class="ic-room" src="{{ details.image.url }}" alt="{{ details.title }}">
+                                <div class="back-item-text">
+                                    {{ details.title }}
+                                </div>
+                            </div>
+
+                            {% endfor %}
+
+                            <div href="#modal-reservation" class="booking-button-slider booking-btn {% cycle "_disabled" "" %}">
+{#                                <div href="#modal-reservation" class="booking-button-slider">#}
+                                Book now
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                {% endfor %}
+
+            </div>
+        </div>
+        <img class="img bg-img-shadow " src="{% static "img/BG-2.png" %}" alt="">
+    </div>
+
+
+</section>
+
+
+{#<section class="our-service">#}
+    {% include "includes/services.html" %}
+{#</section>#}
+
+
+{#<section class="about-hotel">#}
+    {% include "includes/about_hotel.html" %}
+{#</section>#}
+
+
+{#<section class="attractions-near-the-hotel">#}
+    {% include "includes/attractions_near_the_hotel.html" %}
+{#</section>#}
+
+
+{#<section class="reviews">#}
+    {% include "includes/reviews.html" %}
+{#</section>#}
+
+
+{#<footer>#}
+    {% include "includes/footer.html" %}
+{#</footer>#}
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+
+        $(".booking-btn").click(function (event){
+            document.querySelector(".modal-adults-form").value = document.querySelector(".adults-form").value
+            document.querySelector(".modal-children-form").value = document.querySelector(".children-form").value
+            document.querySelector(".deluxe-input").checked = document.querySelector("#deluxe-2").checked
+            document.querySelector(".econom-input").checked = document.querySelector("#econom-2").checked
+            document.querySelector(".check-in-2").value = document.querySelector("#check-in").value
+            document.querySelector(".check-out-2").value = document.querySelector("#check-out").value
+        })
+
+        $("#send_message").click(function (event){
+
+        })
+
+        $(".av-rooms").click(function (event){
+            var myDateIn =  document.querySelector("#check-in").value
+            var myDateOut = document.querySelector("#check-out").value
+            var modalDateIn =  document.querySelector(".check-in-2").value
+            var modalDateOut = document.querySelector(".check-out-2").value
+            var deluxe = document.querySelector("#deluxe-2").checked
+            var econom = document.querySelector("#econom-2").checked
+            var adults =   document.querySelector(".adults-form").value
+            var children = document.querySelector(".children-form").value
+
+            let data = {
+                dateIn: myDateIn,
+                dateOut: myDateOut,
+                modalDateIn: modalDateIn,
+                modalDateOut: modalDateOut,
+                deluxe: deluxe,
+                econom: econom,
+                adults: adults,
+                children: children,
+            }
+
+            if(myDateIn && myDateOut || modalDateIn && modalDateOut){
+                $.ajax({
+                    method: "POST",
+                    dataType: "json",
+                    data: data,
+                    {#url: document.URL+"av_rooms/",#}
+                    url: {% url "av_rooms" %},
+                    success: function (data){
+                        let result = data["data"]
+                        {#console.log(result)#}
+                        let rooms_for_del_av = document.querySelectorAll(".rooms-for-del-av")
+                        rooms_for_del_av.forEach(i =>{i.classList.remove("av")})
+
+                        if (!result){
+                            console.log("Not results")
+                            alert("There are NO Available Rooms")
+                        } else {
+                            console.log("Success")
+                            $.each(result, function (key, obj) {
+                                {#myId = $("#my-room-id-"+obj.id)#}
+                                myId = $("#my-room-id-"+obj['id'])
+                                myId.addClass("av")
+                            })
+                        }
+                    }
+                })
+            }
+        })
+
+    </script>
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% load static thumbnail %}
+{% load reviews_tags %}
+{% get_reviews as reviews %}
+
+
+<section class="reviews">
+    <div class="container comments">
+        <div class="stripe-1"></div>
+        <div class="comments_title">
+            <img class="quotes" src="{% static "img/quotes.svg" %}" alt="">
+            <div class="comments-title">
+                What our guests say about hotel
+            </div>
+        </div>
+        <div class="stripe-2"></div>
+        <div class="buttons">
+            <div class="attraction-button left"></div>
+            <div class="attraction-button right"></div>
+        </div>
+        <div class="slider-2 swiper">
+            <div class="swiper-wrapper">
+
+                {% for review in reviews %}
+
+                    <div class="swiper-slide ">
+                        <div class="slider-width">
+                            <div class="slider_item">
+                                <div class="slider_item-title">
+                                    <img src="{% static "img/quotes.svg" %}" alt="">
+                                    <div class="date">{{ review.date_created|date:"F d, Y" }}</div>
+                                </div>
+                                <div class="slider_item-text">
+                                    {{ review.text }}
+                                </div>
+                                <div class="slider_item-stripe"></div>
+                                <div class="slider_item-name">
+                                    {{ review.name }}
+                                </div>
+                                <div class="rating">
+                                    <img class="rating-star" src="{% static "img/rating-star.svg" %}" alt="">
+                                    <img class="rating-star" src="{% static "img/rating-star.svg" %}" alt="">
+                                    <img class="rating-star" src="{% static "img/rating-star.svg" %}" alt="">
+                                    <img class="rating-star" src="{% static "img/rating-star.svg" %}" alt="">
+                                    <img class="rating-star black" src="{% static "img/rating-star.svg" %}" alt="">
+                                </div>
+                                <div class="avatar">
+                                    {% thumbnail review.image "100x100" crop="center" as im %}
+                                        <img src="{{ im.url }}" alt="" class="avtar-img">
+                                    {% endthumbnail %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</section>
+
+

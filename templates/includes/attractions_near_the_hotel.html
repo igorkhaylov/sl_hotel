@@ -1,0 +1,111 @@
+{% load static %}
+
+<section class="attractions-near-the-hotel">
+    <div class="title_1">Attractions near the hotel</div>
+    <div class="stripe "></div>
+    <div class="container attractions">
+        <img class="attraction-img  " src="{% static "img/attraction-1.webp" %}" alt="">
+        <img class="attraction-img-2 " src="{% static "img/attraction-1.webp" %}" alt="">
+        <img class="d-none" src="{% static "img/attraction-2.webp" %}" alt="">
+        <img class="d-none" src="{% static "img/attraction-3.webp" %}" alt="">
+        <img class="d-none" src="{% static "img/attraction-4.webp" %}" alt="">
+        <img class="d-none" src="{% static "img/attraction-5.webp" %}" alt="">
+        <div class="attractions-pagination">
+
+
+            <div class="attraction-info">
+                <div class="attraction-info-title">Mausoleum of Khoja Ahmed Yasawi</div>
+                <div class="attraction-info-text">
+                    The famous mausoleum is named after the prominent Muslim figure and poet Khoja Ahmed Yasawi.
+                </div>
+                <div class="attraction-info-position">
+                    <div class="position">
+                        <img class="ic-position" src="{% static "img/ic_location.svg" %}" alt="">
+                        <span class="street">Street - Oksaroy 1</span>
+                        <img class="ic-position" src="{% static "img/ic_space.svg" %}" alt="">
+                        <span class="space">Walk 45 min</span>
+
+                    </div>
+                    <a href="#">
+
+                        <img class="ic-position current-location" src="{% static "img/ic_current-location.svg" %}" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="pagination-items">
+                <div class="dashed"></div>
+                <div class="pagination-item _active">
+                    <div class="circle"></div>
+                </div>
+                <div class="pagination-item">
+                    <div class="circle"></div>
+                </div>
+                <div class="pagination-item">
+                    <div class="circle"></div>
+                </div>
+                <div class="pagination-item">
+                    <div class="circle"></div>
+                </div>
+                <div class="pagination-item">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+        <div class="attraction-buttons">
+            <div class="attraction-button left"></div>
+            <div class="attraction-button right"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<script>
+
+    const content =[
+        {
+            'img':  '{% static "img/attraction-1.webp" %}',
+            'title' : 'Place-1',
+            'text' : ' Lorem ipsum dolor sit amet consectetur adipisicing elit.  adipisicing   adipisicing   adipisicing  adipisicing  Quod quasi, nam veritatis a adipisci voluptatum deleniti officiis cum voluptas! Rem!',
+            'street' : 'Street - Oksaroy 1',
+            'space' : 'Walk 45 min',
+
+        },
+        {
+            'img':  '{% static "img/attraction-2.webp" %}',
+            'title' : 'Place-2',
+            'text' : ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quasi, nam veritatis a adipisci voluptatum deleniti officiis cum voluptas! Rem!',
+            'street' : 'Street - Oksaroy 1',
+            'space' : 'Walk 45 min',
+
+        },
+        {
+            'img':  '{% static "img/attraction-3.webp" %}',
+            'title' : 'Place-3',
+            'text' : ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quasi, nam veritatis a adipisci voluptatum deleniti officiis cum voluptas! Rem!',
+            'street' : 'Street - Oksaroy 1',
+            'space' : 'Walk 45 min',
+
+        },
+        {
+            'img':  '{% static "img/attraction-4.webp" %}',
+            'title' : 'Place-4',
+            'text' : ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quasi, nam veritatis a adipisci voluptatum deleniti officiis cum voluptas! Rem!',
+            'street' : 'Street - Oksaroy 1',
+            'space' : 'Walk 45 min',
+
+        },
+        {
+            'img':  '{% static "img/attraction-5.webp" %}',
+            'title' : 'Place-5',
+            'text' : ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quasi, nam veritatis a adipisci voluptatum deleniti officiis cum voluptas! Rem!',
+            'street' : 'Street - Oksaroy 1',
+            'space' : 'Walk 45 min',
+
+        }]
+
+</script>
+
