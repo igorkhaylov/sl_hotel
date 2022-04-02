@@ -37,11 +37,49 @@
                                     {{ review.name }}
                                 </div>
                                 <div class="rating">
-                                    <img class="rating-star" src="{% static "img/rating-star.svg" %}" alt="">
-                                    <img class="rating-star" src="{% static "img/rating-star.svg" %}" alt="">
-                                    <img class="rating-star" src="{% static "img/rating-star.svg" %}" alt="">
-                                    <img class="rating-star" src="{% static "img/rating-star.svg" %}" alt="">
-                                    <img class="rating-star black" src="{% static "img/rating-star.svg" %}" alt="">
+
+                                    {% if review.stars == 5 %}
+
+                                        <img class="rating-star" src="{% static "img/rating-star.svg" %}" alt="">
+                                        <img class="rating-star" src="{% static "img/rating-star.svg" %}" alt="">
+                                        <img class="rating-star" src="{% static "img/rating-star.svg" %}" alt="">
+                                        <img class="rating-star" src="{% static "img/rating-star.svg" %}" alt="">
+                                        <img class="rating-star" src="{% static "img/rating-star.svg" %}" alt="">
+
+                                    {% elif review.stars == 4 %}
+
+                                        <img class="rating-star" src="{% static "img/rating-star.svg" %}" alt="">
+                                        <img class="rating-star" src="{% static "img/rating-star.svg" %}" alt="">
+                                        <img class="rating-star" src="{% static "img/rating-star.svg" %}" alt="">
+                                        <img class="rating-star" src="{% static "img/rating-star.svg" %}" alt="">
+                                        <img class="rating-star black" src="{% static "img/rating-star.svg" %}" alt="">
+
+                                    {% elif review.stars == 3 %}
+
+                                        <img class="rating-star" src="{% static "img/rating-star.svg" %}" alt="">
+                                        <img class="rating-star" src="{% static "img/rating-star.svg" %}" alt="">
+                                        <img class="rating-star" src="{% static "img/rating-star.svg" %}" alt="">
+                                        <img class="rating-star black" src="{% static "img/rating-star.svg" %}" alt="">
+                                        <img class="rating-star black" src="{% static "img/rating-star.svg" %}" alt="">
+
+                                    {% elif review.stars == 2 %}
+
+                                        <img class="rating-star" src="{% static "img/rating-star.svg" %}" alt="">
+                                        <img class="rating-star" src="{% static "img/rating-star.svg" %}" alt="">
+                                        <img class="rating-star black" src="{% static "img/rating-star.svg" %}" alt="">
+                                        <img class="rating-star black" src="{% static "img/rating-star.svg" %}" alt="">
+                                        <img class="rating-star black" src="{% static "img/rating-star.svg" %}" alt="">
+
+                                    {% elif review.stars == 1 %}
+
+                                        <img class="rating-star" src="{% static "img/rating-star.svg" %}" alt="">
+                                        <img class="rating-star black" src="{% static "img/rating-star.svg" %}" alt="">
+                                        <img class="rating-star black" src="{% static "img/rating-star.svg" %}" alt="">
+                                        <img class="rating-star black" src="{% static "img/rating-star.svg" %}" alt="">
+                                        <img class="rating-star black" src="{% static "img/rating-star.svg" %}" alt="">
+
+                                    {% endif %}
+
                                 </div>
                                 <div class="avatar">
                                     {% thumbnail review.image "100x100" crop="center" as im %}

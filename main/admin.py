@@ -7,7 +7,7 @@ from modeltranslation.admin import TranslationAdmin
 class RoomsAdmin(TranslationAdmin):
     list_display = ("title", "book_in", "book_out", "categories", )
     prepopulated_fields = {"slug": ("title", "number_of_room")}
-    list_editable = ('book_in', 'book_out', "categories", )
+    list_editable = ('book_in', 'book_out', )
 
 
 # @admin.register(Categories)
