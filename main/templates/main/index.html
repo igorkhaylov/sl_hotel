@@ -311,28 +311,38 @@
                             {% endfor %}
 
 
+                        {% if room.book_out %}
+
                             <div id="btn-{{ room.slug }}" href="#modal-reservation" class="booking-button-slider booking-btn">
                                 {% trans "Book now" %}
                             </div>
 
-                                    <script>
-                                        let now{{ room.id }} = new Date;
+                            <script>
+                                let now{{ room.id }} = new Date;
 
-                                        now{{ room.id }}.setFullYear({{ room.book_out|date:"Y" }})
-                                        now{{ room.id }}.setMonth({{ room.book_out|date:"n" }}-1)
-                                        now{{ room.id }}.setDate({{ room.book_out|date:"j" }})
+                                now{{ room.id }}.setFullYear({{ room.book_out|date:"Y" }})
+                                now{{ room.id }}.setMonth({{ room.book_out|date:"n" }}-1)
+                                now{{ room.id }}.setDate({{ room.book_out|date:"j" }})
 
-                                        let now2{{ room.id }} = new Date;
+                                let now2{{ room.id }} = new Date;
 
-                                        let btn{{ room.id }} = document.querySelector('#btn-{{ room.slug }}')
+                                let btn{{ room.id }} = document.querySelector('#btn-{{ room.slug }}')
 
-                                        if (now{{ room.id }} < now2{{ room.id }}) {
-                                            btn{{ room.id }}.classList.remove("_disabled")
-                                        } else {
-                                            btn{{ room.id }}.classList.add("_disabled")
-                                        }
+                                if (now{{ room.id }} < now2{{ room.id }}) {
+                                    btn{{ room.id }}.classList.remove("_disabled")
+                                } else {
+                                    btn{{ room.id }}.classList.add("_disabled")
+                                }
 
-                                    </script>
+                            </script>
+
+                        {% else %}
+
+                            <div id="btn-{{ room.slug }}" href="#modal-reservation" class="booking-button-slider booking-btn">
+                                {% trans "Book now" %}
+                            </div>
+
+                        {% endif %}
 
 
 
