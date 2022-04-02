@@ -59,7 +59,9 @@ const aviable = document.querySelector('#aviable'),
         function modalBtnValidate(btn,input1,input2) {
             btn.addEventListener('click', function(e){
                 if(input1.value && input2.value){
-                    aviable.click()
+
+                    setTimeout((event)=>{aviable.click()}, 1000)
+
                     const blockID = modalBtn.getAttribute('href')
                     document.querySelector(''+blockID).scrollIntoView({behavior:'smooth'})
                     input1.classList.remove('err_date')

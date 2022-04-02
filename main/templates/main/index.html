@@ -189,7 +189,7 @@
 
                 </label>
                 <input data-f="av" class="filter" id="av" name="filter" type="radio">
-                <label data-f="av" id="aviable" href="#booking" class="room-section" for="av">
+                <label data-f="av" id="aviable" href="#booking" class="room-section available-btn" for="av">
                    {% trans "Available rooms" %}
                 </label>
 
@@ -456,6 +456,21 @@
                         }
                     }
                 })
+
+
+
+                    $(".available-btn").click(function (event){
+                    setTimeout( function (){
+                        this.click()
+                        alert("hello")
+                    },3000)
+                    })
+
+
+                {#setTimeout(available2, 3000)#}
+
+
+
             }
         })
 
