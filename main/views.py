@@ -51,11 +51,11 @@ def av_rooms(request):
             print(rooms)
 
         from django.db.models import Q
-        rooms = rooms.filter(Q(book_in__gt=datetime.date(int(year_out), int(month_out), int(day_out))) |
+        rooms_av = rooms.filter(Q(book_in__gt=datetime.date(int(year_out), int(month_out), int(day_out))) |
                              Q(book_out__lt=datetime.date(int(year_in), int(month_in), int(day_in)))
                              )
 
-        rooms = rooms.union(Rooms.objects.filter(Q(book_in=None) & Q(book_out=None)))
+        rooms = rooms_av.union(rooms.objects.filter(Q(book_in=None) & Q(book_out=None)))
         data = []
         if not rooms:
             return JsonResponse({"data": False},)

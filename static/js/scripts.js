@@ -60,7 +60,7 @@ const aviable = document.querySelector('#aviable'),
             btn.addEventListener('click', function(e){
                 if(input1.value && input2.value){
 
-                    setTimeout((event)=>{aviable.click()}, 1000)
+                    setTimeout((event)=>{aviable.click()}, 2000)
 
                     const blockID = modalBtn.getAttribute('href')
                     document.querySelector(''+blockID).scrollIntoView({behavior:'smooth'})
