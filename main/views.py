@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Rooms, Services, Reviews
+from .models import Rooms, Services, Reviews, Categories
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 import datetime
@@ -7,11 +7,13 @@ import datetime
 
 def index(request):
     rooms = Rooms.objects.all()
-    services = Services.objects.all()
+    # services = Services.objects.all()
+    categories = Categories.objects.all()
     # reviews = Reviews.objects.all()
 
     return render(request, "main/index.html", {"rooms": rooms,
-                                               "services": services,
+                                               "categories": categories,
+                                               # "services": services,
                                                # "reviews": reviews,
                                                })
 

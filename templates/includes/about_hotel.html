@@ -1,11 +1,11 @@
-{% load static %}
+{% load static i18n %}
 
 <section class="about-hotel">
     <div id="about-us" class="about-us  container">
 
         <div class="about-us_topbar">
             <div class="about-us_title">
-                About our hotel
+                {% trans "About our hotel" %}
             </div>
             <div class="about-us_stripe">
 
@@ -26,7 +26,7 @@
             <div class="about-us_info right">
                 <div class="backdrop-shadow"></div>
                 <div class="about-us_info-suptitle right">
-                    We choose comfort and luxury
+                   {% trans "We choose comfort and luxury" %}
                 </div>
                 <div class="about-us_info-title">
                     Our Priority
@@ -36,7 +36,7 @@
                     duis enim velit mollit.Amet minim mollit non deserunt ullamco est sit
                 </div>
                 <div href="#slider" class="scroll view-rooms">
-                    View hotel rooms
+                   {% trans "View hotel rooms" %}
                     <img class="view-rooms_ic" src="{% static "img/ic_link.svg" %}" alt="">
                 </div>
             </div>

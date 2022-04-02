@@ -1,4 +1,4 @@
-{% load static %}
+{% load static i18n %}
 
 <section class="header">
 
@@ -15,13 +15,13 @@
         <div class="logo-block"><a class="logo" href="#"> <img class="logo-link" src="{% static "img/Logo.png" %}" alt=""></a></div>
         <div class="container header-container h">
             <div class="main  navbar">
-                <a class=" scroll nav-link" href="#services">Services</a>
+                <a class=" scroll nav-link" href="#services">{% trans "Services" %}</a>
                 <div class="stripe-guests mobile"></div>
-                <a class="scroll  nav-link" href="#slider">Our Rooms</a>
+                <a class="scroll  nav-link" href="#slider">{% trans "Our Rooms" %}</a>
                 <div class="stripe-guests mobile"></div>
-                <a class="scroll-top nav-link" href="#about-us">About us</a>
+                <a class="scroll-top nav-link" href="#about-us">{% trans "About us" %}</a>
                 <div class="stripe-guests mobile"></div>
-                <a class=" mobile nav-link" href="#about-us">Restaurant</a>
+                <a class=" mobile nav-link" href="#about-us">{% trans "Restaurant" %}</a>
                 <div class="stripe-guests mobile"></div>
             </div>
             <div class="additional-content ">
@@ -63,17 +63,12 @@
 
                         {% endif %}
 
-
-
-
-
-
                     </div>
                     <img class="ic_arrow" src="{% static "img/arrow_b.svg" %}" alt="">
                 </div>
                 <div class="tel nav-link">
                     <div class="tel-text mobile">
-                        Reception
+                        {% trans "Reception" %}
                     </div>
                     <a class="tel-link" href="tel: + 777 (77) 777 77 77">
                         <img src="{% static "img/retro-tel.svg" %}" alt="" class="tel_ic">
@@ -82,7 +77,7 @@
                 </div>
                 <div class="mobile">
                     <div class="social-text">
-                        Follow us on our social networks
+                       {% trans "Follow us on our social networks" %}
                     </div>
                     <div class="block-img">
                         <a href="#">

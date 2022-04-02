@@ -1,4 +1,4 @@
-{% load static %}
+{% load static i18n %}
 
 <footer>
     <div class="container footer ">
@@ -19,24 +19,24 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="footer_nav">
-                            <a class="scroll-top footer_link " href="#services"> Services</a>
-                            <a class="scroll-top footer_link" href="#slider"> Our Rooms</a>
-                            <a class="scroll-top footer_link " href="#about-us"> About us</a>
-                            <a class="scroll-top footer_link " href="#about-us"> Restaurant</a>
+                            <a class="scroll-top footer_link " href="#services"> {% trans "Services" %}</a>
+                            <a class="scroll-top footer_link" href="#slider"> {% trans "Our Rooms" %}</a>
+                            <a class="scroll-top footer_link " href="#about-us"> {% trans "About us" %}</a>
+                            <a class="scroll-top footer_link " href="#about-us"> {% trans "Restaurant" %}</a>
                         </div>
                         <div class="footer_nav-stripe"></div>
                     </div>
                     <div class="col-md-6">
                         <div class="contact">
 
-                            <div class="link_title">Reception</div>
+                            <div class="link_title">{% trans "Reception" %}</div>
                             <a class="tel-link" href="tel: + 777 (77) 777 77 77">
                                 <img src="{% static "img/retro-tel.svg" %}" alt="" class="tel_ic">
                                 <div class="tel-num">+ 777 (77) 777 77 77</div>
 
                             </a>
                             <!-- <a href="#"><img src="img/retro-tel.svg" alt=""> (480) 555-0103</a> -->
-                            <div class="link_title">Follow us on our social networks</div>
+                            <div class="link_title">{% trans "Follow us on our social networks" %}</div>
                             <div class="social">
                                 <a href="#">
                                     <img class="social-icon ic_facebook" src="{% static "img/ic_facebook.svg" %}" alt="">

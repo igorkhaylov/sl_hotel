@@ -10,29 +10,28 @@ class RoomsAdmin(TranslationAdmin):
     list_editable = ('book_in', 'book_out', "categories", )
 
 
-@admin.register(Categories)
-class CategoriesAdmin(TranslationAdmin):
+# @admin.register(Categories)
+# class CategoriesAdmin(TranslationAdmin):
+#     list_display = ("title", )
+#     readonly_fields = ("slug", )
+
+
+# @admin.register(RoomDetails)
+# class RoomDetailsAdmin(TranslationAdmin):
+#     list_display = ("title", )
+
+
+@admin.register(Services)
+class ServicesAdmin(TranslationAdmin):
     list_display = ("title", )
-    readonly_fields = ("slug", )
 
 
-
-
-
-
-
-
-
-
-
-
+@admin.register(Reviews)
+class ReviewsAdmin(TranslationAdmin):
+    list_display = ("name", )
 
 
 # admin.site.register(Categories)
-admin.site.register(Reviews)
-admin.site.register(Services)
-
-
-
-
+# admin.site.register(Reviews)
+# admin.site.register(Services)
 # admin.site.register(RoomDetails)
