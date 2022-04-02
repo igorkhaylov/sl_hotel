@@ -42,6 +42,7 @@ def av_rooms(request):
         print("split dateOut", year_out, month_out, day_out)
         rooms = Rooms.objects.all()
 
+        # On the server change the category 2 for deluxe and 1 for econom
         if deluxe == "true":
             rooms = rooms.filter(categories__rooms=1)
             print(rooms)

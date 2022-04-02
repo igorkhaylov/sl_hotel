@@ -95,7 +95,6 @@
         </div>
     </div>
 
-
     <div id="booking" class="Booking">
         <div class="reservation">
             {% trans "Online Reservation" %}
@@ -311,10 +310,36 @@
 
                             {% endfor %}
 
-                            <div href="#modal-reservation" class="booking-button-slider booking-btn {% cycle "_disabled" "" %}">
-{#                                <div href="#modal-reservation" class="booking-button-slider">#}
-                               {% trans "Book now" %}
+
+                            <div id="btn-{{ room.slug }}" href="#modal-reservation" class="booking-button-slider booking-btn">
+                                {% trans "Book now" %}
                             </div>
+
+                                    <script>
+                                        let now{{ room.id }} = new Date;
+
+                                        now{{ room.id }}.setFullYear({{ room.book_out|date:"Y" }})
+                                        now{{ room.id }}.setMonth({{ room.book_out|date:"n" }}-1)
+                                        now{{ room.id }}.setDate({{ room.book_out|date:"j" }})
+
+                                        let now2{{ room.id }} = new Date;
+
+                                        let btn{{ room.id }} = document.querySelector('#btn-{{ room.slug }}')
+
+                                        if (now{{ room.id }} < now2{{ room.id }}) {
+                                            btn{{ room.id }}.classList.remove("_disabled")
+                                        } else {
+                                            btn{{ room.id }}.classList.add("_disabled")
+                                        }
+
+                                    </script>
+
+
+
+
+
+
+
                         </div>
 
                     </div>
