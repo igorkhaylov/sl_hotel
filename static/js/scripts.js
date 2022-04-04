@@ -59,14 +59,14 @@ const aviable = document.querySelector('#aviable'),
         function modalBtnValidate(btn,input1,input2) {
             btn.addEventListener('click', function(e){
                 if(input1.value && input2.value){
-
-                    setTimeout((event)=>{aviable.click()}, 2000)
+                    aviable.click()
+                    setTimeout((event)=>{aviable.click()}, 1500)
 
                     const blockID = modalBtn.getAttribute('href')
                     document.querySelector(''+blockID).scrollIntoView({behavior:'smooth'})
                     input1.classList.remove('err_date')
                     input2.classList.remove('err_date')
-                }else{
+                } else {
                    input1.classList.add('err_date')
                    // input1.placeholder = 'Ведите дату'
                    input2.classList.add('err_date')
@@ -74,8 +74,8 @@ const aviable = document.querySelector('#aviable'),
                 }
             })
 
-
         }
+
         modalBtnValidate(modalBtn2,checkIN,checkOUT)
         modalBtnValidate(modalBtn,checkIN2,checkOUT2)
         modalBtn.addEventListener('click',function(e){

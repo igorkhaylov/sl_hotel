@@ -4,7 +4,7 @@
 {% block body %}
 
 
-<form id="modal-reservation" class="modal-reservation   ">
+<form id="modal-reservation" class="modal-reservation ">
     <img class="close_reservation " src="{% static "img/cross.svg" %}" alt="">
     <div class=" modal-reservation_container date ">
         <div class="container-title booking-time ">
@@ -61,19 +61,18 @@
                     </div>
                 </div>
             </div>
-            <button href="#slider" class="select-room  av-rooms">{% trans "Choose a Room" %}</button>
+            <button id="room_form" href="#slider" class="select-room  av-rooms">{% trans "Choose a Room" %}</button>
         </div>
         <div class="modal-reservation_container">
             <div class="container-title">
-{#                Контактные данные#}
                 {% trans "Contact Information" %}
             </div>
-            <input class="modal-input" required placeholder="{% trans "First name" %}" type="text">
-            <input class="modal-input" required placeholder="{% trans "Last name" %}" type="text">
-            <input class="modal-input" required placeholder="{% trans "Email" %}" type="email">
-            <input class="modal-input" required placeholder="{% trans "Phone" %}" type="tel">
+            <input name="first_name" class="modal-input first_name_form" required placeholder="{% trans "First name" %}" type="text">
+            <input name="last_name" class="modal-input last_name_form" required placeholder="{% trans "Last name" %}" type="text">
+            <input name="email" class="modal-input email_form" required placeholder="{% trans "Email" %}" type="email">
+            <input name="phone" class="modal-input phone_form" required placeholder="{% trans "Phone" %}" type="tel">
 
-            <button id="send_message" class="submit" type="submit">{% trans "Booking Now" %}</button>
+            <button id="send_message" class="submit" type="button">{% trans "Booking Now" %}</button>
         </div>
     </div>
 </form>
@@ -401,16 +400,81 @@
             document.querySelector(".modal-children-form").value = document.querySelector(".children-form").value
             document.querySelector(".deluxe-input").checked = document.querySelector("#deluxe-2").checked
             document.querySelector(".econom-input").checked = document.querySelector("#econom-2").checked
-            document.querySelector(".check-in-2").value = document.querySelector("#check-in").value
-            document.querySelector(".check-out-2").value = document.querySelector("#check-out").value
+            if (!document.querySelector(".check-in-2").value && document.querySelector(".check-out-2").value){
+                document.querySelector(".check-in-2").value = document.querySelector("#check-in").value
+                document.querySelector(".check-out-2").value = document.querySelector("#check-out").value
+            }
         })
+
 
         $("#send_message").click(function (event){
 
+            {#event.preventDefault()#}
+
+            let modalDateIn =  document.querySelector(".check-in-2").value
+            let modalDateOut = document.querySelector(".check-out-2").value
+            let deluxe = document.querySelector(".deluxe-input").checked
+            let econom = document.querySelector(".econom-input").checked
+            let adults = document.querySelector(".modal-adults-form").value
+            let children = document.querySelector(".modal-children-form").value
+            let room = document.querySelector("#room_form").firstChild.nodeValue
+            let first_name = document.querySelector(".first_name_form").value
+            let last_name = document.querySelector(".last_name_form").value
+            let email = document.querySelector(".email_form").value
+            let phone = document.querySelector(".phone_form").value
+
+
+
+
+
+
+            if (first_name && last_name && email && phone){
+
+                let data_for_message = {
+                    dateIn: modalDateIn,
+                    dateOut: modalDateOut,
+                    deluxe: deluxe,
+                    econom: econom,
+                    adults: adults,
+                    children: children,
+                    room: room,
+                    first_name: first_name,
+                    last_name: last_name,
+                    email: email,
+                    phone: phone,
+                }
+
+                console.log(data_for_message)
+
+                $.ajax({
+                    method: "POST",
+                    dataType: "json",
+                    data: data_for_message,
+                    url: "{% url "send_message" %}",
+                    success: function (data){
+                        let result = data["data"]
+                        if (result){
+                            console.log("ajax is worked!!! True")
+                                            alert("Успешно отправлено")
+                            location.reload()
+
+                        } else {
+                            console.log("ajax is worked!!! False")
+                                            alert("Успешно отправлено")
+
+                        }
+
+                    }
+                })
+            } else {
+                alert("Заполните корректно все данные")
+            }
         })
 
         $(".av-rooms").click(function (event){
-            var myDateIn =  document.querySelector("#check-in").value
+
+
+            var myDateIn = document.querySelector("#check-in").value
             var myDateOut = document.querySelector("#check-out").value
             var modalDateIn =  document.querySelector(".check-in-2").value
             var modalDateOut = document.querySelector(".check-out-2").value
@@ -456,24 +520,16 @@
                         }
                     }
                 })
-
-
-
-                    $(".available-btn").click(function (event){
-                    setTimeout( function (){
-                        this.click()
-                        alert("hello")
-                    },3000)
-                    })
-
-
-                {#setTimeout(available2, 3000)#}
-
-
-
             }
         })
 
     </script>
+
+{#    <script>#}
+{#    $("#send_message").click(function (event){#}
+{#        #}
+{#    })#}
+{#    #}
+{#    </script>#}
 
 {% endblock %}
